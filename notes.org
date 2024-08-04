@@ -7,8 +7,8 @@
 *** DONE 入门
 *** TODO http://www.gpupuzzlers.com/
 **** DONE Accounting for FLOPS
-**** TODO The Faster Way to Add?
-**** TODO Order of Kernels
+**** DONE The Faster Way to Add?
+**** DONE Order of Kernels
 **** TODO Quantization Quirks
 **** TODO Memorable Mysteries
 **** TODO Swimming in Streams
@@ -22,4 +22,4 @@
 ** complier
 *** TODO https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/
 **** DONE Lesson 2: Representing Programs
-**** TODO Lesson 3: Local Analysis & Optimization
+**** DONE Lesson 3: Local Analysis & Optimization
