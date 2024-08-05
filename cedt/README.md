@@ -51,3 +51,19 @@ PyTorch DDP: For distributed training across multiple GPUs.
 Implement advanced optimization techniques like mixed precision training using NVIDIA's Apex library.
 Explore more complex transformer architectures and larger datasets.
 Scale the project to multiple nodes in a cluster using distributed computing frameworks like Horovod.
+
+## Run the code
+install GPU driver
+```
+ubuntu-drivers devices
+apt install ubuntu-drivers-common
+sudo apt install nvidia-driver-550
+```
+install the libraries
+```
+sudo apt update
+sudo apt install python3-pip
+pip3 install torch torchvision torchaudio
+pip3 install transformers
+```
+
