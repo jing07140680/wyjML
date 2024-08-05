@@ -9,7 +9,7 @@
 **** DONE Accounting for FLOPS
 **** DONE The Faster Way to Add?
 **** DONE Order of Kernels
-**** TODO Quantization Quirks
+**** DONE Quantization Quirks
 **** TODO Memorable Mysteries
 **** TODO Swimming in Streams
 **** TODO To Fuse or Not to Fuse?
@@ -23,3 +23,13 @@
 *** TODO https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/
 **** DONE Lesson 2: Representing Programs
 **** DONE Lesson 3: Local Analysis & Optimization
+**** DONE Lesson 4: Data Flow
+**** TODO Lesson 5: Global Analysis & SSA
+**** TODO Lesson 6: LLVM
+**** TODO Lesson 7: Loop Optimization
+**** TODO Lesson 8: Interprocedural Analysis
+**** TODO Lesson 9: Alias Analysis
+**** TODO Lesson 10: Memory Management
+**** TODO Lesson 11: Dynamic Compilers
+**** TODO Lesson 12: Program Synthesis
+**** TODO Lesson 13: Concurrency & Parallelism
