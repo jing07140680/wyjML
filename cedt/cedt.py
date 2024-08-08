@@ -5,7 +5,7 @@ from torch.utils.data import Dataset, DataLoader
 from transformers import BertTokenizer, BertModel
 import torch.optim as optim
 import os
-
+import attention
 
 # Define custom dataset
 class TextDataset(Dataset):
@@ -132,3 +132,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # test attention
+    
+    # Example tensors for query, key, and value
+    query = torch.randn(2, 8, 50, 64, device='cuda')
+    key = torch.randn(2, 8, 50, 64, device='cuda')
+    value = torch.randn(2, 8, 50, 64, device='cuda')
+
+    # Call the forward function from the CUDA extension
+    output = attention.forward(query, key, value)
+    print(output)

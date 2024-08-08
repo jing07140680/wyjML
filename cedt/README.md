@@ -63,7 +63,22 @@ install the libraries
 ```
 sudo apt update
 sudo apt install python3-pip
-pip3 install torch torchvision torchaudio
 pip3 install transformers
+pip3 install numpy==1.21.0
+pip3 install pandas==1.3.5
+apt install nvidia-cuda-toolkit //cudatoolkit=11.5
+pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html //pytorch-cuda11.3
 ```
-
+install and configure  GCC
+```
+sudo apt install gcc-10 g++-10
+export CC=/usr/bin/gcc-10
+export CXX=/usr/bin/g++-10
+export CUDA_ROOT=/usr/local/cuda
+ln -s /usr/bin/gcc-10 $CUDA_ROOT/bin/gcc
+ln -s /usr/bin/g++-10 $CUDA_ROOT/bin/g++
+```
+Build the CUDA Extension:
+```
+python3 setup.py build_ext --inplace
+```
