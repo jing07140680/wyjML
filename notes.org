@@ -10,7 +10,7 @@
 **** DONE The Faster Way to Add?
 **** DONE Order of Kernels
 **** DONE Quantization Quirks
-**** TODO Memorable Mysteries
+**** DONE Memorable Mysteries
 **** TODO Swimming in Streams
 **** TODO To Fuse or Not to Fuse?
 **** TODO Communication is the Key to Success
@@ -24,8 +24,8 @@
 **** DONE Lesson 2: Representing Programs
 **** DONE Lesson 3: Local Analysis & Optimization
 **** DONE Lesson 4: Data Flow
-**** TODO Lesson 5: Global Analysis & SSA
-**** TODO Lesson 6: LLVM
+**** DONE Lesson 5: Global Analysis & SSA
+**** DONE Lesson 6: LLVM
 **** TODO Lesson 7: Loop Optimization
 **** TODO Lesson 8: Interprocedural Analysis
 **** TODO Lesson 9: Alias Analysis
@@ -33,3 +33,8 @@
 **** TODO Lesson 11: Dynamic Compilers
 **** TODO Lesson 12: Program Synthesis
 **** TODO Lesson 13: Concurrency & Parallelism
+** TPU
+** prompt engineering
+*** TODO https://www.coursera.org/projects/prompt-engineering-with-llama-2
+** NCCL
+*** TODO https://developer.nvidia.com/nccl
