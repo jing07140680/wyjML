@@ -1,11 +1,15 @@
+import sys
+import os
+# Add the directory containing the .so file to sys.path
+module_path = os.path.abspath(os.path.dirname(__file__))  # Directory of the current script
+sys.path.append(module_path)
 from datasets import load_dataset
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from transformers import BertTokenizer, BertModel
 import torch.optim as optim
-import os
-import attention
+import attention_cuda as attention 
 
 # Define custom dataset
 class TextDataset(Dataset):
