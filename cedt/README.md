@@ -53,11 +53,20 @@ Explore more complex transformer architectures and larger datasets.
 Scale the project to multiple nodes in a cluster using distributed computing frameworks like Horovod.
 
 ## Run the code
-install GPU driver
+install GPU driver and CUDA Toolkit
 ```
+sudo apt update
 ubuntu-drivers devices
 apt install ubuntu-drivers-common
-sudo apt install nvidia-driver-550
+'''
+Find the driver version from https://www.nvidia.com/download/index.aspx#
+'''
+sudo apt install nvidia-driver-version
+```
+Find the CUDA version from 
+```
+apt install nvidia-cuda-toolkit //cudatoolkit=11.5
+pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html //pytorch-cuda11.3
 ```
 install the libraries
 ```
@@ -66,8 +75,6 @@ sudo apt install python3-pip
 pip3 install transformers
 pip3 install numpy==1.21.0
 pip3 install pandas==1.3.5
-apt install nvidia-cuda-toolkit //cudatoolkit=11.5
-pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html //pytorch-cuda11.3
 ```
 install and configure  GCC
 ```
