@@ -58,9 +58,9 @@ install GPU driver and CUDA Toolkit
 sudo apt update
 ubuntu-drivers devices
 apt install ubuntu-drivers-common
-'''
+```
 Find the driver version from https://www.nvidia.com/download/index.aspx#
-'''
+```
 sudo apt install nvidia-driver-version
 ```
 Find the CUDA version from 
