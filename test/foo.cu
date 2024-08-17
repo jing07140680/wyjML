@@ -21,14 +21,14 @@ void foo(float* input, float* output, int size) {
     cudaMalloc((void**)&d_input, size * sizeof(float));
     cudaMalloc((void**)&d_output, size * sizeof(float));
 
-    cudaEventRecord(start, 0);
+    //cudaEventRecord(start, 0);
     // Copy data from host to device
     cudaMemcpy(d_input, input, size * sizeof(float), cudaMemcpyHostToDevice);
-    cudaEventRecord(stop, 0);
-    cudaEventSynchronize(stop);
-    float elapsedTime;
-    cudaEventElapsedTime(&elapsedTime, start, stop);
-    std::cout << "Elapsed time: " << elapsedTime << " ms" << std::endl;
+    //cudaEventRecord(stop, 0);
+    //cudaEventSynchronize(stop);
+    //float elapsedTime;
+    //cudaEventElapsedTime(&elapsedTime, start, stop);
+    //std::cout << "Elapsed time: " << elapsedTime << " ms" << std::endl;
 
     // Launch the kernel on the GPU
     int blockSize = 256;  // Number of threads per block
