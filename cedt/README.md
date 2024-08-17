@@ -85,7 +85,12 @@ nvidia-smi
 ```
 Or Find the CUDA version from https://developer.nvidia.com/cuda-downloads
 ```
-apt install nvidia-cuda-toolkit //cudatoolkit=11.5
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu$(lsb_release -sr | cut -d. -f1)/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu$(lsb_release -sr | cut -d. -f1)/x86_64/ /"
+sudo apt-get update
+sudo apt-get install cuda-12-2
+export PATH=/usr/local/cuda-12.2/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
 ```
 Install pytorch
 ```
