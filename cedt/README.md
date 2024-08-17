@@ -63,9 +63,25 @@ Find the driver version from https://www.nvidia.com/download/index.aspx#
 ```
 sudo apt install nvidia-driver-version
 ```
-Find the CUDA version from 
+Find the CUDA version from https://developer.nvidia.com/cuda-downloads
 ```
 apt install nvidia-cuda-toolkit //cudatoolkit=11.5
+```
+Disable Nouveau (If Necessary)
+```
+sudo nano /etc/modprobe.d/blacklist-nouveau.conf
+```
+add
+```
+blacklist nouveau
+options nouveau modeset=0
+```
+```
+sudo update-initramfs -u
+sudo reboot
+```
+Install pytorch
+```
 pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html //pytorch-cuda11.3
 ```
 install the libraries
