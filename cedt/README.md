@@ -57,15 +57,14 @@ install GPU driver and CUDA Toolkit
 ```
 sudo apt update
 ubuntu-drivers devices
-apt install ubuntu-drivers-common
 ```
-Find the driver version from https://www.nvidia.com/download/index.aspx#
+install the corresponding driver 
+```
+apt install ubuntu-drivers-version
+```
+Or Find the driver version from https://www.nvidia.com/download/index.aspx#
 ```
 sudo apt install nvidia-driver-version
-```
-Find the CUDA version from https://developer.nvidia.com/cuda-downloads
-```
-apt install nvidia-cuda-toolkit //cudatoolkit=11.5
 ```
 Disable Nouveau (If Necessary)
 ```
@@ -79,6 +78,14 @@ options nouveau modeset=0
 ```
 sudo update-initramfs -u
 sudo reboot
+```
+Get CUDA version from 
+```
+nvidia-smi
+```
+Or Find the CUDA version from https://developer.nvidia.com/cuda-downloads
+```
+apt install nvidia-cuda-toolkit //cudatoolkit=11.5
 ```
 Install pytorch
 ```
