@@ -25,3 +25,5 @@ nsys stats foo_report.nsys-rep
 ```
 ![Results Figure](images/nsys.png)
 # Nsight Compute
+https://forums.developer.nvidia.com/t/how-do-i-use-nv-nsight-cu-cli-and-the-gui-version-for-profiling/72220/2
+It seems when using ssh, nv-nsight-cu-cli will yields error:The application returned an error code (11)
