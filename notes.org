@@ -2,10 +2,10 @@
 ** 了解 gpu 和 cuda 基础
 *** DONE learn this play list: https://www.youtube.com/watch?v=4APkMJdiudU&list=PLC6u37oFvF40BAm7gwVP7uDdzmW83yHPe
 *** TODO https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
+** DONE 了解pytorch基础
 *** DONE roofline analysis
-** 了解pytorch基础
 *** DONE 入门
-*** TODO http://www.gpupuzzlers.com/
+*** DONE http://www.gpupuzzlers.com/
 **** DONE Accounting for FLOPS
 **** DONE The Faster Way to Add?
 **** DONE Order of Kernels
