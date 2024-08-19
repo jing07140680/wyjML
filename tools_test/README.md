@@ -20,11 +20,11 @@ nsys-ui
 ```
 Open foo_report.nsys-rep, go to CUDA API, check Events View, cudaMemcpy = 20.034 μs.
 When use cudaEventElapsedTime, elapsedTime = 0.025312 ms
-![Results Figure](images/nsys-ui.png)
+
 ```
 nsys stats foo_report.nsys-rep
 ```
-![Results Figure](images/nsys.png)
+
 
 # Nsight Compute
 https://forums.developer.nvidia.com/t/how-do-i-use-nv-nsight-cu-cli-and-the-gui-version-for-profiling/72220/2
