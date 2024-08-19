@@ -1,4 +1,5 @@
 # Nsight Systems
+Focuses on profiling and analyzing the performance of individual applications, helping developers optimize their code to better utilize GPU resources.
 go to https://developer.nvidia.com/nsight-systems/get-started
 ```
 wget https://developer.nvidia.com/downloads/assets/tools/secure/nsight-systems/2024_5/NsightSystems-linux-public-2024.5.1.113-3461954.run
@@ -24,8 +25,16 @@ When use cudaEventElapsedTime, elapsedTime = 0.025312 ms
 nsys stats foo_report.nsys-rep
 ```
 ![Results Figure](images/nsys.png)
+
 # Nsight Compute
 https://forums.developer.nvidia.com/t/how-do-i-use-nv-nsight-cu-cli-and-the-gui-version-for-profiling/72220/2
 It seems when using ssh, nv-nsight-cu-cli will yields error:The application returned an error code (11)
 Check this link: https://discuss.mxnet.apache.org/t/using-nvidia-profiling-tools-visual-profiler-and-nsight-compute/2801
 
+# Nvidia-smi
+```
+watch -n 1 nvidia-smi
+```
+
+# memcheck
+usage: https://www.clear.rice.edu/comp422/resources/cuda/pdf/CUDA_Memcheck.pdf
