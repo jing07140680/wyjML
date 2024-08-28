@@ -79,18 +79,20 @@ options nouveau modeset=0
 sudo update-initramfs -u
 sudo reboot
 ```
-Get CUDA version from 
+Get CUDA Toolkit
 ```
-nvidia-smi
+apt install nvidia-cuda-toolkit 
 ```
 Or Find the CUDA version from https://developer.nvidia.com/cuda-downloads (do not install driver)
 ```
-apt install nvidia-cuda-toolkit 
+nvidia-smi
+wget xxxxxxxxxx
+sh xxxxx.run
 nvcc --version
 ```
 Install pytorch
 ```
-pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html //pytorch-cuda11.3
+pip3 install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html //pytorch-cuda11.3
 ```
 install the libraries
 ```
