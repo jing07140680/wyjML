@@ -83,9 +83,9 @@ Get CUDA version from
 ```
 nvidia-smi
 ```
-Or Find the CUDA version from https://developer.nvidia.com/cuda-downloads
+Or Find the CUDA version from https://developer.nvidia.com/cuda-downloads (do not install driver)
 ```
-apt install nvidia-cuda-toolkit
+apt install nvidia-cuda-toolkit 
 nvcc --version
 ```
 Install pytorch
