@@ -29,13 +29,14 @@
 **** DONE Lesson 7: Loop Optimization
 **** DONE Lesson 8: Interprocedural Analysis
 **** DONE Lesson 9: Alias Analysis
-**** TODO Lesson 10: Memory Management
+**** DONE Lesson 10: Memory Management
 **** TODO Lesson 11: Dynamic Compilers
-**** TODO Lesson 12: Program Synthesis
+**** DONE Lesson 12: Program Synthesis
 **** TODO Lesson 13: Concurrency & Parallelism
 ** DONE Tools
 ** TODO TPU
-** TODO prompt engineering
-*** TODO https://www.coursera.org/projects/prompt-engineering-with-llama-2
+** DONE prompt engineering
+*** DONE https://www.coursera.org/projects/prompt-engineering-with-llama-2
 ** TODO NCCL
 *** TODO https://developer.nvidia.com/nccl
+  
