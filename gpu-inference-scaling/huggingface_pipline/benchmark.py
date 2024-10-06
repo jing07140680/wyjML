@@ -24,6 +24,8 @@ def benchmark_sentiment_analysis(model_name="sentiment-analysis", device=0, num_
     
     # Print results
     print(f"Device: {device}")
+    for i, result in enumerate(results):
+        print(f"Sample {i}: {result}")
     print(f"Total time for {num_samples} samples: {total_time:.4f} seconds")
     print(f"Average time per sample: {avg_time_per_sample:.4f} seconds")
     return results
