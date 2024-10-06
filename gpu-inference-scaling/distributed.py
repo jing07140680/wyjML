@@ -1,39 +1,39 @@
 from mpi4py import MPI
-import numpy as np
+from transformers import pipeline
 
-def distributed_benchmark(num_samples=1000):
-    comm = MPI.COMM_WORLD
-    rank = comm.Get_rank()
-    size = comm.Get_size()
+# Initialize MPI
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()  # Get the rank of the process
+size = comm.Get_size()  # Get the total number of processes
 
-    # Each process handles a portion of the total samples
-    samples_per_process = num_samples // size
-    texts = ["I love using Hugging Face's Transformers library!" for _ in range(samples_per_process)]
-    
-    # Initialize the pipeline only on the first GPU (or the specified device)
-    device = rank % torch.cuda.device_count()  # Use modulo to balance loads on multiple GPUs
-    sentiment_pipeline = pipeline("sentiment-analysis", device=device)
+# Example number of samples per process
+samples_per_process = 500  # Assuming 1000 samples total across 2 nodes
+texts = ["I love using Hugging Face's Transformers library!" for _ in range(samples_per_process)]
 
-    # Start the timer
+# Load the sentiment analysis model
+sentiment_pipeline = pipeline("sentiment-analysis", device=0)
+
+# Run inference
+results = sentiment_pipeline(texts)
+
+# Gather results at the root process
+all_results = comm.gather(results, root=0)
+
+# If you're the root, combine the results
+if rank == 0:
+    combined_results = [item for sublist in all_results for item in sublist]  # Flatten the list
+    # Output combined results
+    for i, result in enumerate(combined_results):
+        print(f"Sample {i}: {result}")
+
+# Optional: Benchmarking performance (timing)
+if rank == 0:
+    import time
     start_time = time.time()
-    
-    # Perform inference
-    results = sentiment_pipeline(texts)
 
-    # End the timer
-    end_time = time.time()
-    
-    # Calculate the total time taken
-    total_time = end_time - start_time
-    avg_time_per_sample = total_time / samples_per_process
-
-    # Gather results
+    # Run the distributed inference
     all_results = comm.gather(results, root=0)
-    
-    if rank == 0:
-        print(f"Total samples: {num_samples}, Processes: {size}")
-        print(f"Total time taken: {total_time:.4f} seconds")
-        print(f"Average time per sample: {avg_time_per_sample:.4f} seconds")
 
-# To run the distributed benchmark, use the command line:
-# mpiexec -n <number_of_processes> python your_script.py
+    # Measure end time
+    end_time = time.time()
+    print(f"Total time for inference: {end_time - start_time} seconds")
