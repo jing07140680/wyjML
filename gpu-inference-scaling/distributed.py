@@ -2,6 +2,9 @@ from mpi4py import MPI
 from transformers import pipeline
 import time
 
+# Measure start time for inference
+start_time = time.time()
+
 # Initialize MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()  # Get the rank of the process
@@ -14,17 +17,14 @@ texts = ["I love using Hugging Face's Transformers library!" for _ in range(samp
 # Load the sentiment analysis model
 sentiment_pipeline = pipeline("sentiment-analysis", device=0)
 
-# Measure start time for inference
-start_time = time.time()
-
 # Run inference
 results = sentiment_pipeline(texts)
 
-# Measure end time for inference
-end_time = time.time()
-
 # Gather results at the root process
 all_results = comm.gather(results, root=0)
+
+# Measure end time for inference
+end_time = time.time()
 
 # If you're the root, combine the results and print timings
 if rank == 0:

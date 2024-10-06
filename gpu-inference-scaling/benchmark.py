@@ -2,14 +2,15 @@ import time
 from transformers import pipeline
 
 def benchmark_sentiment_analysis(model_name="sentiment-analysis", device=0, num_samples=1000):
+    # Start the timer
+    start_time = time.time()
+    
     # Load the sentiment analysis pipeline
     sentiment_pipeline = pipeline(model_name, device=device)
     
     # Generate sample input texts
     texts = ["I love using Hugging Face's Transformers library!" for _ in range(num_samples)]
-    
-    # Start the timer
-    start_time = time.time()
+
     
     # Perform inference
     results = sentiment_pipeline(texts)
