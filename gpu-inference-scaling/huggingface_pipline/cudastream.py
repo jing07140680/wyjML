@@ -54,6 +54,3 @@ final_results = []
 for result in results:
     final_results.extend(result)
 
-# Process the final combined results
-for res in final_results[:10]:  # Only display first 10 results
-    print(res)

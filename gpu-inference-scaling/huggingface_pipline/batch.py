@@ -1,35 +1,36 @@
-import torch
-from transformers import pipeline
 import time
+from transformers import pipeline
+import torch
 
-# Number of CUDA streams
-num_streams = 2
+# Run inference in batches without streams
+start_time = time.time()
+
+# Assuming a GPU with device=0
 device = torch.device("cuda:0")
-streams = [torch.cuda.Stream(device=device) for _ in range(num_streams)]
 
-# Create the sentiment pipeline
+# Create a Hugging Face pipeline for sentiment analysis
 sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english", device=0)
 
-# Number of samples and batch size
+# Number of samples you want to process
 num_samples = 1000
 texts = ["I love using Hugging Face's Transformers library!" for _ in range(num_samples)]
-batch_size = num_samples // num_streams
 
-# Function to process each chunk
-def process_batch(batch, stream):
-    with torch.cuda.stream(stream):
-        sentiment_pipeline(batch)
-        torch.cuda.synchronize()
+# Split the texts into 2 batches
+batch_size = num_samples // 2
+batch1 = texts[:batch_size]
+batch2 = texts[batch_size:]
 
-# Split the data and run on different streams
-start_time = time.time()
-for i in range(num_streams):
-    batch = texts[i * batch_size:(i + 1) * batch_size]
-    process_batch(batch, streams[i])
+# Perform inference on the first batch
+results_batch1 = sentiment_pipeline(batch1)
 
-# Wait for all streams to finish
-torch.cuda.synchronize()
+# Perform inference on the second batch
+results_batch2 = sentiment_pipeline(batch2)
 
+# Combine the results
+results = results_batch1 + results_batch2
+
+# Calculate the total time taken
 end_time = time.time()
 total_time = end_time - start_time
 print(f"Inference completed in {total_time:.4f} seconds.")
+

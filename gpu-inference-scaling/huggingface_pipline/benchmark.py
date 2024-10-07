@@ -12,9 +12,12 @@ def benchmark_sentiment_analysis(model_name="sentiment-analysis", device=0, num_
     texts = ["I love using Hugging Face's Transformers library!" for _ in range(num_samples)]
 
     
-    # Perform inference
-    results = sentiment_pipeline(texts)
-    
+    # Perform inference sequentially
+    results = []
+    for text in texts:
+        result = sentiment_pipeline(text)  # Process one text at a time
+        results.append(result)
+        
     # End the timer
     end_time = time.time()
     

@@ -11,7 +11,7 @@ rank = comm.Get_rank()  # Get the rank of the process
 size = comm.Get_size()  # Get the total number of processes
 
 # Example number of samples per process
-samples_per_process = 500  # Assuming 1000 samples total across 2 nodes
+samples_per_process = 1000  # Assuming 1000 samples total across 2 nodes
 texts = ["I love using Hugging Face's Transformers library!" for _ in range(samples_per_process)]
 
 # Load the sentiment analysis model
@@ -36,3 +36,6 @@ if rank == 0:
     # Print total inference time
     total_time = end_time - start_time
     print(f"Total time for inference: {total_time:.4f} seconds")
+
+
+#mpiexe -n 2 --hostfile hostfile.txt python3 distributed.py
